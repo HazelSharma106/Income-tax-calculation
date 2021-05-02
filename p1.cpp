@@ -8,23 +8,23 @@ private:
 
 public:
     double sal, tax;
-    p1()
+    p1() // deafult constructor
     {
     }
     void getz()
     {
-        cout << "Enter your salary in a year: ";
+        cout << "Enter your salary in a year: "; // enetring of data
         cin >> sal;
         s = sal;
     }
     void print1()
     {
-        cout << "You have no income tax.\n";
+        cout << "You have no income tax.\n"; // printing of data
     }
     void showz()
     {
         sal = s;
-        cout << "\nSalary  : " << " tk. in a year" << sal;
+        cout << "\nSalary  : " << " tk. in a year" << sal; // shwoing of data
         cout << "\nTax     : 0 tk.";
     }
 };
