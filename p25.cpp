@@ -8,10 +8,13 @@ private:
 
 public:
     double sal, tax;
+    p25() // default constructor
+    {
 
+    }
     void gettf()
     {
-        cout << "Enter salary in a year: ";
+        cout << "Enter salary in a year: "; // enetering of data
         cin >> sal;
         tax = sal * (.25);
         s = sal;
@@ -19,11 +22,11 @@ public:
 
     }
 
-    void print4()
+    void print4() // printing of data
     {
         cout << "The income tax is: " << tax << "tk." << endl;
     }
-    void showtf()
+    void showtf() // showing of data
     {
         cout << "\nSalary      : " << " tk. in a year" << sal;
         cout << "\nTax         : " << tax << " tk." << "\n\n";
