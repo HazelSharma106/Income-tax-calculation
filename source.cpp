@@ -1,12 +1,13 @@
 #include<iostream>
-#include<cstring>
-#include<cstdio>
-#include <malloc.h>
-#include <wchar.h>
-#define MAX_SIZE 41804
-#define _CRT_SECURE_NO_WARNINGS
+#include<cstring>// for using the strcpy function
+#include<conio.h> // The conio. h is a non-standard header file used in C and C++ programming
+#include<cstdio> // Stdio. h stands for Standard Input Output
+#include <malloc.h> //The malloc () function in C++ allocates a block of uninitialized memory and returns a void pointer to the first byte of the allocated memory block if the allocation succeeds. 
+#include <wchar.h> // The standard header <wchar. h> is included to perform input and output operations on wide streams. It can also be used to manipulate the wide strings.
+#define MAX_SIZE 41804 // It is use to give maximum size of default array
+#define _CRT_SECURE_NO_WARNINGS //To disable the warnings
+# define getch() // – It is a library that is used to import the get function
 using namespace std;
-# define getch()
 using std::cout;
 using std::cin;
 
@@ -147,6 +148,7 @@ public:
 
         cout << "Enter salary in a year: ";
         cin >> sal;
+        s=sal;
         t = sal * (.15);
  
     }
@@ -178,6 +180,7 @@ public:
     {
         cout << "Enter salary in a year: ";
         cin >> sal;
+        s=sal;
         t = sal * (.20);
     }
     void print3()
@@ -202,7 +205,9 @@ private:
 
 public:
     double sal,tax;
-
+    p15()
+    {
+    }
     void gettf()
     {
         cout << "Enter salary in a year: ";
@@ -229,7 +234,7 @@ public:
 int main()
 {
     common* c;
-    c = new common[60];
+    c = new common[60]; // creation of pointers for the class
     p1* z;
     z = new p1[20];
     p15* fn;
