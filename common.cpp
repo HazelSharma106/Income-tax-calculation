@@ -1,15 +1,15 @@
 #include"common.h"
 #include<iostream>
 using namespace std;
-class common :public iTax
+class common :public iTax // class common 
 
 {
 public:
     double sal, tax;
 
-    void operator*()
+    void operator*() // operator overloading
     {
-
+// calculation of other occupation other from the farmer,student,buisness,export
         cout << "How much you earn in a year: ";
         cin >> sal;
         if (sal < 50000)
@@ -50,7 +50,7 @@ public:
     }
 
 
-    void showc()
+    void showc() // function called to display the salary and tax
     {
         cout << "\nSalary  : " << sal << " tk. in a year";
         cout << "\nTax     : " << tax << " tk." << "\n\n";
