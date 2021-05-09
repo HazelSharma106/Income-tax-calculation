@@ -2,14 +2,12 @@
 #define p1_h
 #include<iostream>
 using namespace std;
-#include "iTax.h"
-class p1 :public iTax
+#include"getshow.h"
+class p1 :public getshow// abstraction
 {
 public:
-	void getz();
-	void print1();
-	void showz();
-   
-  
+    double sal, tax;
+    void getz();
+    void showz();
 };
 #endif
