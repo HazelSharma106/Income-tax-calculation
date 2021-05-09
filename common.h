@@ -2,11 +2,18 @@
 #define common_h
 #include<iostream>
 using namespace std;
-#include "iTax.h"
-class common :public iTax
+#include "getshow.h"
+class common :public getshow//abstraction
+
 {
 public:
-	void operator*();
-		void showc();
-}
+    double sal, tax;
+    void calculate();
+
+
+
+        void show();
+  
+
+};
 #endif
