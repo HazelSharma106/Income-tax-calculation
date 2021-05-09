@@ -1,30 +1,14 @@
 #include"p1.h"
 #include<iostream>
-using namespace std;
-class p1 :public iTax
-{
-private:
-    double s, t;
-
-public:
-    double sal, tax;
-    p1() // deafult constructor
+using namespace std;;
+    void p1::getz()
     {
-    }
-    void getz()
-    {
-        cout << "Enter your salary in a year: "; // enetring of data
+        cout << "Enter your salary in a year: ";
         cin >> sal;
-        s = sal;
+        cout << "You have no income tax.\n";
     }
-    void print1()
+    void p1::showz()
     {
-        cout << "You have no income tax.\n"; // printing of data
-    }
-    void showz()
-    {
-        sal = s;
-        cout << "\nSalary  : " << " tk. in a year" << sal; // shwoing of data
+        cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : 0 tk.";
     }
-};
