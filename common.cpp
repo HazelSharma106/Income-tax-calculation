@@ -1,60 +1,52 @@
 #include"common.h"
 #include<iostream>
 using namespace std;
-class common :public iTax // class common 
 
-{
-public:
-    double sal, tax;
 
-    void operator*() // operator overloading
+    void common::calculate()
     {
-// calculation of other occupation other from the farmer,student,buisness,export
-        cout << "How much you earn in a year: ";
-        cin >> sal;
         if (sal < 50000)
         {
-            tax = sal * (.03);
+            tax = sal + (3000000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 50000) && (sal <= 100000))
         {
-            tax = sal * (.07);
+            tax = sal + (700000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 100000) && (sal <= 150000))
         {
-            tax = sal * (.10);
+            tax = sal + (100000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 150000) && (sal <= 200000))
         {
-            tax = sal * (.15);
+            tax = sal + (150000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 200000) && (sal <= 250000))
         {
-            tax = sal * (.20);
+            tax = sal + (200000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 250000) && (sal <= 300000))
         {
-            tax = sal * (.23);
+            tax = sal + (230000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if (sal > 300000)
         {
-            tax = sal * (.25);
+            tax = sal + (250000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
     }
 
 
-    void showc() // function called to display the salary and tax
+    void common:: show()
     {
+       
         cout << "\nSalary  : " << sal << " tk. in a year";
         cout << "\nTax     : " << tax << " tk." << "\n\n";
 
     }
-
-};
