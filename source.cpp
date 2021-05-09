@@ -1,7 +1,8 @@
 #include<iostream>
-#include<cstring>// for using the strcpy function
+#include<stdlib.h>
+#include<string.h>// for using the strcpy function
 #include<conio.h> // The conio. h is a non-standard header file used in C and C++ programming
-#include<cstdio> // Stdio. h stands for Standard Input Output
+#include<stdio.h> // Stdio. h stands for Standard Input Output
 #include <malloc.h> //The malloc () function in C++ allocates a block of uninitialized memory and returns a void pointer to the first byte of the allocated memory block if the allocation succeeds. 
 #include <wchar.h> // The standard header <wchar. h> is included to perform input and output operations on wide streams. It can also be used to manipulate the wide strings.
 #define MAX_SIZE 41804 // It is use to give maximum size of default array
@@ -15,85 +16,89 @@ using std::cin;
 
 class iTax
 {
-public:
+protected:
     char* name = new char[90];
-
     char* occ = new char[90];
-
+public:
     int ID;
-
-    virtual void getit(const char* a)
+    virtual void getit(char* a)
+    {}
+    virtual void showit()
+    {}
+};  //end of base class
+//=================================================================//
+class getshow :public iTax
+{
+public:
+    string b;
+    void getit(const char* a)
     {
-        strcpy(occ, a);
-        cout << "Enter your name: ";
-        gets_s(name);
-        cout << "Enter your ID: ";
+        b = *a;
+        cout << "enter a name:";
+        cin >> name;
+        cout << "enter a ID";
         cin >> ID;
     }
-
-    virtual void showit()
+    void showit()
     {
-
         cout << "\nName    : " << name;
-        cout << "\nOccupation :" << occ;
+        cout << "\nOccupation :" << b;
         cout << "\nID No.  : " << ID;
     }
-};  //end of base class
 
+};
 
 //=================================================================//
 
-class common :public iTax
+class common :public getshow //abstraction
 
 {
 public:
-    double sal,tax;
+    double sal, tax;
 
-    void operator*()
+    void calculate()
     {
-
-        cout << "How much you earn in a year: ";
-        cin >> sal;
         if (sal < 50000)
         {
-            tax = sal * (.03);
+            tax = sal + (3000000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 50000) && (sal <= 100000))
         {
-            tax = sal * (.07);
+            tax = sal + (700000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 100000) && (sal <= 150000))
         {
-            tax = sal * (.10);
+            tax = sal + (100000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 150000) && (sal <= 200000))
         {
-            tax = sal * (.15);
+            tax = sal + (150000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 200000) && (sal <= 250000))
         {
-            tax = sal * (.20);
+            tax = sal + (200000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if ((sal > 250000) && (sal <= 300000))
         {
-            tax = sal * (.23);
+            tax = sal + (230000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
         if (sal > 300000)
         {
-            tax = sal * (.25);
+            tax = sal + (250000);
             cout << "Your IncomeTax is= " << tax << "tk." << endl;
         }
     }
 
 
-    void showc()
+    void show()
     {
+        showit();
         cout << "\nSalary  : " << sal << " tk. in a year";
         cout << "\nTax     : " << tax << " tk." << "\n\n";
 
@@ -103,29 +108,21 @@ public:
 
 //=========================================================//
 
-class p1 :public iTax
+class p1 :public getshow// abstraction
 {
-private:
-    double s, t;
-    
 public:
     double sal, tax;
-    p1()
-    {
-    }
+    
+
     void getz()
     {
         cout << "Enter your salary in a year: ";
         cin >> sal;
-        s = sal;
-    }
-    void print1()
-    {
         cout << "You have no income tax.\n";
     }
     void showz()
     {
-        sal = s;
+        showit();
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : 0 tk.";
     }
@@ -133,32 +130,28 @@ public:
 
 //============================================================//
 
-class p15 :public iTax
+class p15 :public getshow // abstraction
 {
-private :
-    double s, t;
 public:
     double sal, tax;
-    p15()
-    {
 
-    }
-    double getfn()
+    void getfn()
     {
 
         cout << "Enter salary in a year: ";
         cin >> sal;
-        s=sal;
-        t = sal * (.15);
- 
+        tax = sal + (150000);
     }
-    void print2()
+    p15 operator+(const p15& p) // operator overloading
     {
+        p15 P;
+        P.tax = this->tax + p.tax;
         cout << "The income tax is: " << tax << "tk." << endl;
     }
-
     void showfn()
     {
+        showit();
+
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : " << tax << " tk." << "\n\n";
     }
@@ -167,29 +160,29 @@ public:
 
 //===========================================================//
 
-class p20 :public iTax
+class p20 :public getshow
 {
-private:
-    double s, t;
+
 public:
     double sal, tax;
-    p20()
-    {
-    }
-   void getty()
-    {
-        cout << "Enter salary in a year: ";
-        cin >> sal;
-        s=sal;
-        t = sal * (.20);
-    }
-    void print3()
+    
+
+    void getty()
     {
 
+        cout << "Enter salary in a year: ";
+        cin >> sal;
+        tax = sal + (20000);
+    }
+    p20 operator+(const p20& q) // operator overloading
+    {
+        p20 Q;
+        Q.tax = this->tax + q.tax;
         cout << "The income tax is: " << tax << "tk." << endl;
     }
     void showty()
     {
+        showit();
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : " << tax << " tk." << "\n\n";
     }
@@ -198,33 +191,38 @@ public:
 
 //==============================================================//
 
-class p25 :public iTax
+class p25 :public getshow //abstraction
 {
-private:
-    double s, t;
+
 
 public:
-    double sal,tax;
-    p15()
-    {
-    }
+    double sal, tax;
+  
+
     void gettf()
     {
         cout << "Enter salary in a year: ";
         cin >> sal;
-        t= sal * (.25);
-        s = sal;
-
-    }
-
-    void print4()
-    {
+        tax = sal + (25000000);
         cout << "The income tax is: " << tax << "tk." << endl;
     }
     void showtf()
     {
+        showit();
         cout << "\nSalary      : " << " tk. in a year" << sal;
         cout << "\nTax         : " << tax << " tk." << "\n\n";
+    }
+
+};
+class greeting //polymorphism
+{
+    void show()
+    {
+        cout << "welcome" << endl; // show function is overloaded
+    }
+    void show(int a)
+    {
+        cout << "thank you" << endl;
     }
 };
 
@@ -233,6 +231,10 @@ public:
 
 int main()
 {
+    iTax* ptr;
+    getshow  d1;
+    ptr = &d1;
+    ptr->showit();
     common* c;
     c = new common[60]; // creation of pointers for the class
     p1* z;
@@ -246,8 +248,10 @@ int main()
     iTax it;
 
     int i, j, index, ID;
+    int sal;
     char* a = new char[70];
-
+    // virtual function
+   
     do
     {
         cout << "\t\t\t    INCOME TAX CALCULATION"
@@ -255,7 +259,7 @@ int main()
             << "\n2.Search\n3.Exit.\n"
             << "\nMake your choice= ";
         cin >> index;
-
+        
         switch (index)
         {
 
@@ -274,31 +278,33 @@ int main()
                 {
                     z[i].getit(a);
                     z[i].getz();
-                    z[i].print1();
+
                 }
 
                 else if (strcmp(a, "business") == 0)
                 {
                     ty[i].getit(a);
                     ty[i].getty();
-                    ty[i].print3();
+
                 }
                 else if (strcmp(a, "export") == 0)
                 {
                     tf[i].getit(a);
                     tf[i].gettf();
-                    tf[i].print4();
                 }
-                else  if (strcmp(a, "engineer") == 0)
+
+                else if (strcmp(a, "engineer") == 0)
                 {
                     fn[i].getit(a);
                     fn[i].getfn();
-                    fn[i].print2();
+
                 }
                 else
                 {
+                    cout << "How much you earn in a year: ";
+                    cin >> sal;
                     c[i].getit(a);
-                    c[i].operator*();
+                    c[i].calculate();
                 }
             }
             break;
@@ -320,7 +326,7 @@ int main()
                 if (ID == c[i].ID)
                 {
                     c[i].showit();
-                    c[i].showc();
+                    c[i].show();
                     cout << "Press any key.......\n\n";
                     cin.get();
                 }
@@ -358,8 +364,7 @@ int main()
                 }
             }
             break;
-
-
+        
 
 
         case 3:
