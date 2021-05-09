@@ -1,27 +1,26 @@
 #include"p20.h"
 #include<iostream>
 using namespace std;
-class p20 :public iTax
-{
-public:
-    double sal, tax;
-    p20() // default constructor
-    {
-    }
-    void getty() // entering of data
-    {
-        cout << "Enter salary in a year: ";
-        cin >> sal;
-        tax = sal * (.20);
-    }
-    void print3() // printing of data
+
+    
+
+
+    void p20::getty()
     {
 
+        cout << "Enter salary in a year: ";
+        cin >> sal;
+        tax = sal + (20000);
+    }
+    p20 p20:: operator+(const p20& q) // operator overloading
+    {
+        p20 Q;
+        Q.tax = this->tax + q.tax;
         cout << "The income tax is: " << tax << "tk." << endl;
     }
-    void showty() // showing of data
+    void p20::showty()
     {
+        showit();
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : " << tax << " tk." << "\n\n";
     }
-};
