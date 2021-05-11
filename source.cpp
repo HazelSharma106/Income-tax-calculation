@@ -98,7 +98,6 @@ public:
 
     void show()
     {
-        showit();
         cout << "\nSalary  : " << sal << " tk. in a year";
         cout << "\nTax     : " << tax << " tk." << "\n\n";
 
@@ -112,7 +111,7 @@ class p1 :public getshow// abstraction
 {
 public:
     double sal, tax;
-    
+
 
     void getz()
     {
@@ -122,7 +121,6 @@ public:
     }
     void showz()
     {
-        showit();
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : 0 tk.";
     }
@@ -150,7 +148,6 @@ public:
     }
     void showfn()
     {
-        showit();
 
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : " << tax << " tk." << "\n\n";
@@ -165,11 +162,10 @@ class p20 :public getshow
 
 public:
     double sal, tax;
-    
+
 
     void getty()
     {
-
         cout << "Enter salary in a year: ";
         cin >> sal;
         tax = sal + (20000);
@@ -182,7 +178,6 @@ public:
     }
     void showty()
     {
-        showit();
         cout << "\nSalary  : " << " tk. in a year" << sal;
         cout << "\nTax     : " << tax << " tk." << "\n\n";
     }
@@ -197,7 +192,7 @@ class p25 :public getshow //abstraction
 
 public:
     double sal, tax;
-  
+
 
     void gettf()
     {
@@ -208,7 +203,6 @@ public:
     }
     void showtf()
     {
-        showit();
         cout << "\nSalary      : " << " tk. in a year" << sal;
         cout << "\nTax         : " << tax << " tk." << "\n\n";
     }
@@ -251,7 +245,7 @@ int main()
     int sal;
     char* a = new char[70];
     // virtual function
-   
+
     do
     {
         cout << "\t\t\t    INCOME TAX CALCULATION"
@@ -259,7 +253,7 @@ int main()
             << "\n2.Search\n3.Exit.\n"
             << "\nMake your choice= ";
         cin >> index;
-        
+
         switch (index)
         {
 
@@ -364,7 +358,7 @@ int main()
                 }
             }
             break;
-        
+
 
 
         case 3:
